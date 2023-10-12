@@ -2,7 +2,7 @@
 
 Exploration of Rails framework with simple database relationships.
 Project 1 -- Mod 2 -- Backend -- Turing
-![rosters.png](./rosters.png)
+![rosters.png](rosters.png)
 
 ## User Stories
 #### CRUD
