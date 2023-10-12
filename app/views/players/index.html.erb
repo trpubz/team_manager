@@ -1,0 +1,35 @@
+<head>
+  <style>
+    th, td { padding: 12px }
+  </style>
+</head>
+<nav>
+  <a href="/teams">Teams Page</a>
+</nav>
+<h1>Players</h1>
+
+<table style="text-align: justify">
+  <tr>
+    <th>Player</th>
+    <th>Team</th>
+    <th>POS</th>
+    <th>xwOBA</th>
+    <th>wFIP</th>
+    <th>Injured</th>
+  </tr>
+  <% @players.each do | player | %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.mlb_team %></td>
+      <td><%= player.pos %></td>
+      <% if player.xwOBA %>
+        <td><%= player.xwOBA %></td>
+        <td style="background-color: rgba(37,34,34,0.7)"><%= player.xFIP %></td>
+      <% else %>
+        <td style="background-color: rgba(37,34,34,0.7)"><%= player.xwOBA %></td>
+        <td><%= player.xFIP %></td>
+      <% end %>
+      <th><%= player.injured_str %></th>
+    </tr>
+  <% end %>
+</table>

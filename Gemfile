@@ -54,7 +54,7 @@ group :development, :test do
   gem "pry"
   gem "standard"
   gem "capybara"
-  gem "orderly"
+  gem "orderly"  # expect(this).to appear_before(that)
   gem "launchy"
   gem "simplecov"
   gem "shoulda-matchers"

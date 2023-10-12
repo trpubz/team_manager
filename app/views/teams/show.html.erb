@@ -1,0 +1,15 @@
+<nav>
+  <a href="/players">Players Page</a> |
+  <a href="/teams">  Teams Page</a>
+</nav>
+<h1><%= @team.name %></h1>
+<h3>
+  <a href="/teams/<%= @team.id %>/players">Players</a>
+</h3>
+<div>
+  <p>Abbreviation: <%= @team.abbrv %></p>
+  <p>Owner: <%= @team.owner %></p>
+  <p>Win Pct: <%= @team.win_pct.round(3) %></p>
+  <p>Player Count: <%= @team.count_players %></p>
+  <p>Joined: <%= @team.joined_str %></p>
+</div>

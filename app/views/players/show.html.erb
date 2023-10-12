@@ -1,0 +1,11 @@
+<nav>
+  <a href="/players">Players Page  </a> |
+  <a href="/teams">  Teams Page</a>
+</nav>
+
+<h1><%= @player.name %></h1>
+
+<p>Team: <%= @player.mlb_team %></p>
+<!--<p>Owner: <%#= @player.owner %></p>-->
+<p>Win Pct: <%= @player.xwOBA %></p>
+<p>Injured: <%= @player.injured_str %></p>
