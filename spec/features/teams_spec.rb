@@ -140,5 +140,41 @@ RSpec.describe "Teams features" do
 
       expect(page).to have_content @team1.players.first.name
     end
+
+    describe "team player creation" do
+      # As a league manager<br>
+      #     When I visit a Team Children Index page<br>
+      #     Then I see a link to add a new adoptable player for that team "Create Player"<br>
+      #     When I click the link<br>
+      #     I am taken to '/teams/:team_id/players/new' where I see a form to add a new adoptable player<br>
+      #     When I fill in the form with the player's attributes:<br>
+      #     And I click the button "Create Player"<br>
+      #     Then a `POST` request is sent to '/teams/:team_id/players',
+      #     a new player object/row is created for that team,
+      #     and I am redirected to the Team Players Index page where I can see the new player listed
+      it "has button for user to create player that will belong to team" do
+        visit "/teams/#{@team1.id}/players"
+
+        expect(page).to have_button "Create Player"
+
+        click_link("Create Player")
+
+        expect(page).to have_current_path "/teams/#{@team1.id}/players/new"
+      end
+
+      it "has a form to create player and add to team" do
+        visit "/teams/#{@team1.id}/players/new"
+
+        fill_in("Name", with: "New Player")
+        fill_in("MLB Team", with: "FA")
+        fill_in("POS", with: "OF")
+        fill_in("xwOBA", with: "0.899")
+
+        expect(page).to have_button "Create Player"
+        click_button("Create Player")
+
+        expect(page).to have_content "New Player"
+      end
+    end
   end
 end

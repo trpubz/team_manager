@@ -1,0 +1,29 @@
+<h2>Add New Player to Team</h2>
+<%= form_with model: @player, url: "/teams/#{@team.id}/players", method: "post", local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :mlb_team, "MLB Team" %>
+    <%= form.text_field :mlb_team %>
+  </div>
+  <div>
+    <%= form.label :pos, "POS" %>
+    <%= form.text_field :pos %>
+  </div>
+  <div>
+    <%= form.label :xwoba, "xwOBA" %>
+    <%= form.text_field :xwoba %>
+  </div>
+  <div>
+    <%= form.label :xfip, "xFIP" %>
+    <%= form.text_field :xfip %>
+  </div>
+  <div>
+    <%= form.label :injured %>
+    <%= form.check_box :injured %>
+  </div>
+
+  <%= form.submit "Create Player" %>
+<% end %>

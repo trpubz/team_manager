@@ -88,12 +88,12 @@ Project 1 -- Mod 2 -- Backend -- Turing
     Then a `PATCH` request is sent to '/teams/:id',
     the team's info is updated,
     and I am redirected to the Team's Show page where I see the team's updated info
-- [ ] User Story 13, Team Player Creation
+- [x] User Story 13, Team Player Creation
   - As a league manager<br>
     When I visit a Team Children Index page<br>
     Then I see a link to add a new adoptable player for that team "Create Player"<br>
     When I click the link<br>
-    I am taken to '/teams/:parent_id/child_table_name/new' where I see a form to add a new adoptable player<br>
+    I am taken to '/teams/:team_id/players/new' where I see a form to add a new adoptable player<br>
     When I fill in the form with the player's attributes:<br>
     And I click the button "Create Player"<br>
     Then a `POST` request is sent to '/teams/:parent_id/child_table_name',

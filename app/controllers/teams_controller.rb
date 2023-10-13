@@ -28,6 +28,24 @@ class TeamsController < ApplicationController
     redirect_to "/teams"
   end
 
+  def create_player
+    @team = Team.find(params[:id])
+  end
+
+  def add_new_player
+    # require 'pry'; binding.pry
+    Team.find(params[:id]).players.create!(
+      name: params[:name],
+      mlb_team: params[:mlb_team],
+      pos: params[:pos],
+      xwOBA: params[:xwoba].empty? ? nil : params[:xwoba],
+      xFIP: params[:xfip].empty? ? nil : params[:xfip],
+      injured: params[:injured] == "1"
+    )
+
+    redirect_to "/teams/#{params[:id]}/players"
+  end
+
   def edit
     @team = Team.find(params[:id])
   end
