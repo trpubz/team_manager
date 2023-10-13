@@ -66,7 +66,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
 ### Iteration 2
 
 #### CRUD
-- [ ] User Story 11, Team Creation
+- [x] User Story 11, Team Creation
   - As a league manager<br>
     When I visit the Team Index page<br>
     Then I see a link to create a new Team record, "New Team"<br>

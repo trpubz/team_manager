@@ -54,6 +54,30 @@ RSpec.describe "Teams features" do
       visit "/players/#{@p1.id}"
       expect(page).to have_link(nil, href: teams_idx_path)
     end
+
+    describe "new team button" do
+      # As a league manager<br>
+      #     When I visit the Team Index page<br>
+      #     Then I see a link to create a new Team record, "New Team"<br>
+      #     When I click this link<br>
+      #     Then I am taken to '/teams/new' where I  see a form for a new team record<br>
+      #     When I fill out the form with a new team's attributes:<br>
+      #     And I click the button "Create Team" to submit the form<br>
+      #     Then a `POST` request is sent to the '/teams' route,
+      #     a new team record is created,
+      #     and I am redirected to the Team Index page where I see the new Team displayed.
+      it "navigates to new form to add team to database" do
+        visit "/teams"
+
+        expect(page).to have_link(nil, href: "/teams/new")
+      end
+
+      it "shows a form and handles the input to create a new team" do
+        visit "/teams/new"
+
+        expect(page).to have_button "Create Team"
+      end
+    end
   end
 
   describe "team show page" do
@@ -79,6 +103,21 @@ RSpec.describe "Teams features" do
       visit team_show_page_path
 
       expect(page).to have_link(nil, href: team_show_page_path + "/players")
+    end
+
+    describe "update team" do
+      # As a league manager<br>
+      #     When I visit a team show page<br>
+      #     Then I see a link to update the team "Update Team"<br>
+      #     When I click the link "Update Team"<br>
+      #     Then I am taken to '/teams/:id/edit' where I  see a form to edit the team's attributes:<br>
+      #     When I fill out the form with updated information<br>
+      #     And I click the button to submit the form<br>
+      #     Then a `PATCH` request is sent to '/teams/:id',
+      #     the team's info is updated,
+      #     and I am redirected to the Team's Show page where I see the team's updated info
+      it "allows to update the team" do
+      end
     end
   end
 

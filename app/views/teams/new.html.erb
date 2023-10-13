@@ -1,0 +1,22 @@
+<h3>Create New Team</h3>
+
+<%= form_with url: "/teams", method: "post", local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :owner %>
+    <%= form.text_field :owner %>
+  </div>
+  <div>
+    <%= form.label "Abbreviation" %>
+    <%= form.text_field :abbrv %>
+  </div>
+  <div>
+    <%= form.label "Win Pct%" %>
+    <%= form.text_field :win_pct %>
+  </div>
+
+  <%= form.submit "Create Team" %>
+<% end %>
