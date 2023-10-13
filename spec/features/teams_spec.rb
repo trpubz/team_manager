@@ -202,5 +202,20 @@ RSpec.describe "Teams features" do
         expect(@p2.name).to appear_before @p1.name
       end
     end
+
+    describe "edit button in players table" do
+      it "has an edit button that takes user to edit page" do
+        # As a league manager<br>
+        #     When I visit the `players` index page or a team `players` index page<br>
+        #     Next to every player, I see a link to edit that player's info<br>
+        #     When I click the link<br>
+        #     I should be taken to that `players` edit page where I can update its information just like in User Story 14
+        visit "/teams/#{@team1.id}/players"
+
+        click_on "plyr#{@p1.id}"
+
+        expect(page).to have_current_path "/players/#{@p1.id}/edit"
+      end
+    end
   end
 end

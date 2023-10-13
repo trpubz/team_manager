@@ -133,7 +133,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
     I should be taken to that team's edit page where I can update its information just like in User Story 12
 - [ ] User Story 18, Player Update From Players Index Page
   - As a league manager<br>
-    When I visit the `child_table_name` index page or a team `child_table_name` index page<br>
+    When I visit the `players` index page or a team `players` index page<br>
     Next to every player, I see a link to edit that player's info<br>
     When I click the link<br>
-    I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
+    I should be taken to that `players` edit page where I can update its information just like in User Story 14

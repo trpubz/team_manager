@@ -33,7 +33,14 @@
         <td style="background-color: rgba(37,34,34,0.7)"><%= player.xwOBA %></td>
         <td><%= player.xFIP %></td>
       <% end %>
-      <th><%= player.injured_str %></th>
+      <td><%= player.injured_str %></td>
+      <td>
+        <button type="button">
+          <a href="/players/<%= player.id %>/edit" id="plyr<%= player.id %>">
+            Edit Player
+          </a>
+        </button>
+      </td>
     </tr>
   <% end %>
 </table>

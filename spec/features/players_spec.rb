@@ -6,17 +6,18 @@ RSpec.describe "Players features" do
     @team2 = Team.create!(name: "Campus Popo", abbrv: "POPO", owner: "Dave P", win_pct: 0.5238, joined: true)
     @team3 = Team.create!(name: "Pablo Sanchez's", abbrv: "DIRT", owner: "Tanner P", win_pct: 0.4940, joined: true)
     @p1 = @team1.players.create!(name: "Julio Rodriquez",
-                                 mlb_team: "SEA",
-                                 pos: "OF",
-                                 xwOBA: 0.346,
-                                 xFIP: nil,
-                                 injured: false)
+      mlb_team: "SEA",
+      pos: "OF",
+      xwOBA: 0.346,
+      xFIP: nil,
+      injured: false)
     @p2 = Player.create!(name: "Aaron Judge",
-                         mlb_team: "NYY",
-                         pos: "OF",
-                         xwOBA: 0.468,
-                         xFIP: nil,
-                         injured: true)
+      mlb_team: "NYY",
+      pos: "OF",
+      xwOBA: 0.468,
+      xFIP: nil,
+      injured: true,
+      team_id: @team1.id)
   end
 
   describe "index page" do
@@ -39,6 +40,21 @@ RSpec.describe "Players features" do
       expect(page).to have_link(nil, href: plyr_idx)
       visit "/players/#{@p1.id}"
       expect(page).to have_link(nil, href: plyr_idx)
+    end
+
+    describe "edit button in players table" do
+      it "has an edit button that takes user to edit page" do
+        #As a league manager<br>
+        #     When I visit the `players` index page or a team `players` index page<br>
+        #     Next to every player, I see a link to edit that player's info<br>
+        #     When I click the link<br>
+        #     I should be taken to that `players` edit page where I can update its information just like in User Story 14
+        visit "/players"
+
+        click_on "plyr#{@p1.id}"
+
+        expect(page).to have_current_path "/players/#{@p1.id}/edit"
+      end
     end
   end
 
