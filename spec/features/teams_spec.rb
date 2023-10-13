@@ -139,6 +139,23 @@ RSpec.describe "Teams features" do
         expect(page).to have_button "Update"
       end
     end
+
+    describe "delete team" do
+      # As a visitor
+      #     When I visit a team show page
+      #     Then I see a link to delete the team
+      #     When I click the link "Delete Team"
+      #     Then a 'DELETE' request is sent to '/teams/:id',
+      #     the team is deleted, and all player records are deleted
+      #     and I am redirected to the team index page where I no longer see this team
+      it "shows delete button and deletes the team from the database" do
+        visit "/teams/#{@team1.id}"
+
+        click_button "Delete Team"
+
+        expect(page).to have_current_path "/teams"
+      end
+    end
   end
 
   describe "team's players page" do

@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_many :players
+  has_many :players, dependent: :destroy
 
   def joined_str
     if joined

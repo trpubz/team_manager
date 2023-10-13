@@ -141,7 +141,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
 ### Iteration 3
 
 #### CRUD
-- [ ] User Story 19, Team Delete 
+- [x] User Story 19, Team Delete 
   - As a visitor
     When I visit a team show page
     Then I see a link to delete the team
