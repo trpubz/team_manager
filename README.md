@@ -90,7 +90,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
     and I am redirected to the Team's Show page where I see the team's updated info
 - [x] User Story 13, Team Player Creation
   - As a league manager<br>
-    When I visit a Team Children Index page<br>
+    When I visit a Team Playerren Index page<br>
     Then I see a link to add a new adoptable player for that team "Create Player"<br>
     When I click the link<br>
     I am taken to '/teams/:team_id/players/new' where I see a form to add a new adoptable player<br>
@@ -116,7 +116,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
   - As a league manager<br>
     When I visit the player index<br>
     Then I only see records where the boolean column is `false`<br>
-- [x] User Story 16, Sort Team's Children in Alphabetical Order by name
+- [x] User Story 16, Sort Team's Playerren in Alphabetical Order by name
   - As a league manager<br>
     When I visit the Team's players Index Page<br>
     Then I see a link to sort players in alphabetical order<br>
@@ -137,3 +137,47 @@ Project 1 -- Mod 2 -- Backend -- Turing
     Next to every player, I see a link to edit that player's info<br>
     When I click the link<br>
     I should be taken to that `players` edit page where I can update its information just like in User Story 14
+
+### Iteration 3
+
+#### CRUD
+- [ ] User Story 19, Team Delete 
+  - As a visitor
+    When I visit a team show page
+    Then I see a link to delete the team
+    When I click the link "Delete Team"
+    Then a 'DELETE' request is sent to '/teams/:id',
+    the team is deleted, and all player records are deleted
+    and I am redirected to the team index page where I no longer see this team
+- [ ] User Story 20, Player Delete 
+  - As a visitor
+    When I visit a player show page
+    Then I see a link to delete the player "Delete Player"
+    When I click the link
+    Then a 'DELETE' request is sent to '/players/:id',
+    the player is deleted,
+    and I am redirected to the player index page where I no longer see this player
+
+#### ActiveRecord
+
+- [ ] User Story 21, Display Records Over a Given Threshold 
+  - As a visitor
+    When I visit the Team's players Index Page
+    I see a form that allows me to input a number value
+    When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+    Then I am brought back to the current index page with only the records that meet that threshold shown.
+
+#### Usability
+
+- [ ] User Story 22, Team Delete From Team Index Page 
+  - As a visitor
+    When I visit the team index page
+    Next to every team, I see a link to delete that team
+    When I click the link
+    I am returned to the Team Index Page where I no longer see that team
+- [ ] User Story 23, Player Delete From Players Index Page 
+  - As a visitor
+    When I visit the `players` index page or a team `players` index page
+    Next to every player, I see a link to delete that player
+    When I click the link
+    I should be taken to the `players` index page where I no longer see that player
