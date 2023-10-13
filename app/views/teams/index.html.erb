@@ -4,11 +4,22 @@
 <h1>Teams</h1>
 
 <p>sorted by created time [desc]:</p>
-<% @teams.each do | team | %>
-  <p>
-    <a href="/teams/<%= team.id %>"><%= team.name %></a>
-    <%= team.created_at.strftime("%m/%d/%Y @%H:%M:%S:%L") %>
-  </p>
-<% end %>
+<table>
+  <% @teams.each do | team | %>
+    <tr>
+      <td>
+        <a href="/teams/<%= team.id %>"><%= team.name %></a>
+      </td>
+      <td>
+        <%= team.created_at.strftime("%m/%d/%Y @%H:%M:%S:%L") %>
+      </td>
+      <td>
+        <button type="button">
+          <a href="/teams/<%= team.id %>/edit" id="tm<%= team.id %>">Edit Team</a>
+        </button>
+      </td>
+    </tr>
+  <% end %>
+</table>
 
 <button type="button"><a href="/teams/new">New Team</a></button>

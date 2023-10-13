@@ -116,7 +116,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
   - As a league manager<br>
     When I visit the player index<br>
     Then I only see records where the boolean column is `false`<br>
-- [ ] User Story 16, Sort Team's Children in Alphabetical Order by name
+- [x] User Story 16, Sort Team's Children in Alphabetical Order by name
   - As a league manager<br>
     When I visit the Team's players Index Page<br>
     Then I see a link to sort players in alphabetical order<br>
@@ -125,7 +125,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
 
 #### Usability
 
-- [ ] User Story 17, Team Update From Team Index Page
+- [x] User Story 17, Team Update From Team Index Page
   - As a league manager<br>
     When I visit the team index page<br>
     Next to every team, I see a link to edit that team's info<br>

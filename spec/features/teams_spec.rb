@@ -79,6 +79,16 @@ RSpec.describe "Teams features" do
         expect(page).to have_button "Create Team"
       end
     end
+
+    describe "edit button from index page" do
+      it "has button to the team's edit info page" do
+        visit "/teams"
+
+        click_on "tm#{@team1.id}"
+
+        expect(page).to have_current_path "/teams/#{@team1.id}/edit"
+      end
+    end
   end
 
   describe "team show page" do
