@@ -131,7 +131,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
     Next to every team, I see a link to edit that team's info<br>
     When I click the link<br>
     I should be taken to that team's edit page where I can update its information just like in User Story 12
-- [ ] User Story 18, Player Update From Players Index Page
+- [x] User Story 18, Player Update From Players Index Page
   - As a league manager<br>
     When I visit the `players` index page or a team `players` index page<br>
     Next to every player, I see a link to edit that player's info<br>
