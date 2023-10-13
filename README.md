@@ -112,7 +112,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
 
 #### ActiveRecord
 
-- [ ] User Story 15, Player Index only shows `true` Records
+- [x] User Story 15, Player Index only shows `true` Records
   - As a league manager<br>
     When I visit the player index<br>
     Then I only see records where the boolean column is `false`<br>

@@ -16,7 +16,8 @@ RSpec.describe "Teams features" do
       pos: "OF",
       xwOBA: 0.468,
       xFIP: nil,
-      injured: true)
+      injured: true,
+      team_id: @team1.id)
   end
 
   describe "index page" do
@@ -174,6 +175,21 @@ RSpec.describe "Teams features" do
         click_button("Create Player")
 
         expect(page).to have_content "New Player"
+      end
+    end
+
+    describe "team player sort functionality" do
+      it "has link on team's players page to sort the players alphabetically" do
+        # As a league manager<br>
+        #     When I visit the Team's players Index Page<br>
+        #     Then I see a link to sort players in alphabetical order<br>
+        #     When I click on the link<br>
+        #     I'm taken back to the Team's players Index Page where I see all of the team's players in alphabetical order
+        visit "/teams/#{@team1.id}/players"
+
+        click_link "Sort by Name"
+
+        expect(@p2.name).to appear_before @p1.name
       end
     end
   end

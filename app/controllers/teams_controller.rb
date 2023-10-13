@@ -8,8 +8,13 @@ class TeamsController < ApplicationController
   end
 
   def players
+    # require 'pry'; binding.pry
     @team = Team.find(params[:id])
-    @players = @team.players
+    @players = if params[:sorted].nil?
+      @team.players
+    else
+      @team.players.sorted_by_name
+    end
   end
 
   def new

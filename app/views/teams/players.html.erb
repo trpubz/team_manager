@@ -10,6 +10,8 @@
 </nav>
 <h1><%= @team.name %>'s Players</h1>
 
+<button type="button"><a href="/teams/<%= @team.id %>/players?sorted=true">Sort by Name</a></button>
+
 <table style="text-align: justify">
   <tr>
     <th>Player</th>
