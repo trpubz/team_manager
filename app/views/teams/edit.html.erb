@@ -1,0 +1,26 @@
+<h2>Edit <%= @team.name %></h2>
+
+<%= form_with model: @team, url: "/teams/#{@team.id}", method: "patch", local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :owner %>
+    <%= form.text_field :owner %>
+  </div>
+  <div>
+    <%= form.label "Abbreviation" %>
+    <%= form.text_field :abbrv %>
+  </div>
+  <div>
+    <%= form.label "Win Pct%" %>
+    <%= form.text_field :win_pct %>
+  </div>
+  <div>
+    <%= form.label :joined %>
+    <%= form.check_box :joined %>
+  </div>
+
+  <%= form.submit "Update" %>
+<% end %>

@@ -117,6 +117,15 @@ RSpec.describe "Teams features" do
       #     the team's info is updated,
       #     and I am redirected to the Team's Show page where I see the team's updated info
       it "allows to update the team" do
+        visit "/teams/#{@team1.id}"
+
+        expect(page).to have_button "Update Team"
+      end
+
+      it "navigates to an edit form" do
+        visit "/teams/#{@team1.id}/edit"
+
+        expect(page).to have_button "Update"
       end
     end
   end

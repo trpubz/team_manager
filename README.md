@@ -77,7 +77,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
     Then a `POST` request is sent to the '/teams' route,
     a new team record is created,
     and I am redirected to the Team Index page where I see the new Team displayed.
-- [ ] User Story 12, Team Update
+- [x] User Story 12, Team Update
   - As a league manager<br>
     When I visit a team show page<br>
     Then I see a link to update the team "Update Team"<br>

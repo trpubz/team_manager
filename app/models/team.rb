@@ -5,7 +5,7 @@ class Team < ApplicationRecord
     if joined
       "Yes"
     else
-      "no"
+      "No"
     end
   end
 

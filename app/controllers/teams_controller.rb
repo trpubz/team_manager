@@ -13,17 +13,34 @@ class TeamsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
     # require "pry"; binding.pry
-    Team.create!(name: params[:name],
+    Team.create!(
+      name: params[:name],
       abbrv: params[:abbrv],
       owner: params[:owner],
       win_pct: params[:win_pct],
-      joined: true)
+      joined: true
+    )
 
     redirect_to "/teams"
+  end
+
+  def edit
+    @team = Team.find(params[:id])
+  end
+
+  def update
+    Team.find(params[:id]).update!(
+      name: params[:team][:name],
+      abbrv: params[:team][:abbrv],
+      owner: params[:team][:owner],
+      win_pct: params[:team][:win_pct],
+      joined: params[:team][:joined] == "1"
+    )
+
+    redirect_to "/teams/#{params[:id]}"
   end
 end

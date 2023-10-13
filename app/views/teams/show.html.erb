@@ -1,3 +1,4 @@
+<%#= require 'pry'; binding.pry %>
 <nav>
   <a href="/players">Players Page</a> |
   <a href="/teams">  Teams Page</a>
@@ -13,3 +14,4 @@
   <p>Player Count: <%= @team.count_players %></p>
   <p>Joined: <%= @team.joined_str %></p>
 </div>
+<button type="button"><a href="/teams/<%= @team.id %>/edit">Update Team</a></button>
