@@ -52,5 +52,47 @@ RSpec.describe "Players features" do
 
       expect(page).to have_content @p1.xwOBA
     end
+
+    describe "player updates" do
+      # As a league manager
+      #     When I visit a Player Show page<br>
+      #     Then I see a link to update that Player "Update Player"<br>
+      #     When I click the link<br>
+      #     I am taken to '/players/:id/edit' where I see a form to edit the player's attributes:<br>
+      #     When I click the button to submit the form "Update Player"<br>
+      #     Then a `PATCH` request is sent to '/players/:id',
+      #     the player's data is updated,
+      #     and I am redirected to the Player Show page where I see the Player's updated information
+      it "allows user to update player" do
+        visit "/players/#{@p1.id}"
+
+        expect(page).to have_button "Update Player"
+      end
+
+      it "shows current attributes and allows saving those changes" do
+        visit "/players/#{@p1.id}/edit"
+
+        fill_in("MLB Team", with: "ARI")
+
+        click_button "Update Player"
+
+        expect(page).to have_current_path "/players/#{@p1.id}"
+
+        expect(page).to have_content "Team: ARI"
+      end
+    end
+  end
+
+  describe "displays records according to boolean values" do
+    it "shows only healthy players" do
+      # As a league manager<br>
+      #     When I visit the player index<br>
+      #     Then I only see records where the boolean column is `false`<br>
+      visit "/players"
+
+      within_table("players") do
+        expect(page).to have_no_content "Yes"
+      end
+    end
   end
 end

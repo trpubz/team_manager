@@ -9,4 +9,12 @@ class Player < ApplicationRecord
       "No"
     end
   end
+
+  def self.healthy?
+    Player.where(injured: false)
+  end
+
+  def self.sorted_by_name
+    Player.order(name: :asc)
+  end
 end

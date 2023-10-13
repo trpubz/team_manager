@@ -96,17 +96,17 @@ Project 1 -- Mod 2 -- Backend -- Turing
     I am taken to '/teams/:team_id/players/new' where I see a form to add a new adoptable player<br>
     When I fill in the form with the player's attributes:<br>
     And I click the button "Create Player"<br>
-    Then a `POST` request is sent to '/teams/:parent_id/child_table_name',
+    Then a `POST` request is sent to '/teams/:team_id/players',
     a new player object/row is created for that team,
     and I am redirected to the Team Players Index page where I can see the new player listed
-- [ ] User Story 14, Player Update
+- [x] User Story 14, Player Update
   - As a league manager
     When I visit a Player Show page<br>
     Then I see a link to update that Player "Update Player"<br>
     When I click the link<br>
-    I am taken to '/child_table_name/:id/edit' where I see a form to edit the player's attributes:<br>
+    I am taken to '/players/:id/edit' where I see a form to edit the player's attributes:<br>
     When I click the button to submit the form "Update Player"<br>
-    Then a `PATCH` request is sent to '/child_table_name/:id',
+    Then a `PATCH` request is sent to '/players/:id',
     the player's data is updated,
     and I am redirected to the Player Show page where I see the Player's updated information
 
@@ -115,7 +115,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
 - [ ] User Story 15, Player Index only shows `true` Records
   - As a league manager<br>
     When I visit the player index<br>
-    Then I only see records where the boolean column is `true`<br>
+    Then I only see records where the boolean column is `false`<br>
 - [ ] User Story 16, Sort Team's Children in Alphabetical Order by name
   - As a league manager<br>
     When I visit the Team's players Index Page<br>

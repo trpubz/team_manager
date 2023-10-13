@@ -19,9 +19,17 @@ RSpec.describe Player do
       injured: true)
   end
 
-  describe "" do
-    it "" do
+  describe "instance methods" do
+    describe "healthy?" do
+      it "returns all healthy players" do
+        expect(Player.healthy?).to eq [@p1]
+      end
+    end
 
+    describe "sort_by_name" do
+      it "sorts players alphabetically" do
+        expect(Player.sorted_by_name).to eq [@p2, @p1]
+      end
     end
   end
 end

@@ -1,0 +1,35 @@
+<h2>Edit <%= @player.name %></h2>
+
+<%= form_with model: @player, url: "/players/#{@player.id}", method: "patch", local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :mlb_team, "MLB Team" %>
+    <%= form.text_field :mlb_team %>
+  </div>
+  <div>
+    <%= form.label :pos, "POS" %>
+    <%= form.text_field :pos %>
+  </div>
+
+  <% if @player.xwOBA %>
+    <div>
+      <%= form.label :xwOBA, "xwOBA" %>
+      <%= form.text_field :xwOBA %>
+    </div>
+  <% else %>
+    <div>
+      <%= form.label :xFIP, "xFIP" %>
+      <%= form.text_field :xFIP %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :injured %>
+    <%= form.check_box :injured %>
+  </div>
+
+  <%= form.submit "Update Player" %>
+<% end %>

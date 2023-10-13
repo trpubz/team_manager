@@ -8,7 +8,7 @@
 </nav>
 <h1>Players</h1>
 
-<table style="text-align: justify">
+<table style="text-align: justify" id="players">
   <tr>
     <th>Player</th>
     <th>Team</th>
@@ -19,7 +19,7 @@
   </tr>
   <% @players.each do | player | %>
     <tr>
-      <td><%= player.name %></td>
+      <td><a href="/players/<%= player.id %>"><%= player.name %></a></td>
       <td><%= player.mlb_team %></td>
       <td><%= player.pos %></td>
       <% if player.xwOBA %>
