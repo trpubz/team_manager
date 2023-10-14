@@ -182,3 +182,25 @@ Project 1 -- Mod 2 -- Backend -- Turing
     Next to every player, I see a link to delete that player<br>
     When I click the link<br>
     I should be taken to the `players` index page where I no longer see that player
+
+### Extensions
+- [ ] Extension 1: Sort Parents by Number of Children 
+  - As a visitor<br>
+    When I visit the Parents Index Page<br>
+    Then I see a link to sort parents by the number of `child_table_name` they have<br>
+    When I click on the link<br>
+    I'm taken back to the Parent Index Page where I see all of the parents in order of their count of 
+    `child_table_name` (highest to lowest) And, I see the number of children next to each parent name
+- [ ] Extension 2: Search by name (exact match)
+  - As a visitor<br>
+    When I visit an index page ('/parents') or ('/child_table_name')<br>
+    Then I see a text box to filter results by keyword<br>
+    When I type in a keyword that is an exact match of one or more of my records and press the Search button<br>
+    Then I only see records that are an exact match returned on the page
+- [ ] Extension 3: Search by name (partial match)
+  - As a visitor<br>
+    When I visit an index page ('/parents') or ('/child_table_name')<br>
+    Then I see a text box to filter results by keyword<br>
+    When I type in a keyword that is an partial match of one or more of my records and press the Search button<br>
+    Then I only see records that are an partial match returned on the page <br>
+    This functionality should be separate from your exact match functionality.
