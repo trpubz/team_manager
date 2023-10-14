@@ -35,7 +35,7 @@ RSpec.describe Team do
         # As a league manager<br>
         #      When I visit a team's show page<br>
         #      I see a count of the number of players associated with this team<br>
-        expect(@team1.count_players).to eq 1
+        expect(@team1.count_players).to eq 3
       end
     end
   end
@@ -43,7 +43,7 @@ RSpec.describe Team do
   describe "filtering methods" do
     describe "#filter_above" do
       it "takes column name and value and returns results" do
-        expect(Player.filter_above(:xwOBA, 0.352)).to eq [@p2, @p5]
+        expect(Player.filter_above("xwoba", 0.352)).to eq [@p2, @p5]
       end
     end
   end

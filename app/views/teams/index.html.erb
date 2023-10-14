@@ -18,6 +18,9 @@
           <a href="/teams/<%= team.id %>/edit" id="tm<%= team.id %>">Edit Team</a>
         </button>
       </td>
+      <td>
+        <%= button_to 'Delete Team', teams_path(team), method: :delete, form_class: "delete_#{team.id}" %>
+      </td>
     </tr>
   <% end %>
 </table>

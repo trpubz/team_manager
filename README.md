@@ -142,42 +142,43 @@ Project 1 -- Mod 2 -- Backend -- Turing
 
 #### CRUD
 - [x] User Story 19, Team Delete 
-  - As a league manager
-    When I visit a team show page
-    Then I see a link to delete the team
-    When I click the link "Delete Team"
+  - As a league manager<br>
+    When I visit a team show page<br>
+    Then I see a link to delete the team<br>
+    When I click the link "Delete Team"<br>
     Then a 'DELETE' request is sent to '/teams/:id',
     the team is deleted, and all player records are deleted
     and I am redirected to the team index page where I no longer see this team
 - [x] User Story 20, Player Delete 
-  - As a league manager
-    When I visit a player show page
-    Then I see a link to delete the player "Delete Player"
-    When I click the link
+  - As a league manager<br>
+    When I visit a player show page<br>
+    Then I see a link to delete the player "Delete Player"<br>
+    When I click the link<br>
     Then a 'DELETE' request is sent to '/players/:id',
     the player is deleted,
     and I am redirected to the player index page where I no longer see this player
 
 #### ActiveRecord
 
-- [ ] User Story 21, Display Records Over a Given Threshold 
-  - As a league manager
-    When I visit the Team's players Index Page
-    I see a form that allows me to input a number value
-    When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+- [x] User Story 21, Display Records Over a Given Threshold 
+  - As a league manager<br>
+    When I visit the Team's players Index Page<br>
+    I see a form that allows me to input a number value<br>
+    When I input a number value and click the submit button that reads 
+    'Only return records with more than `number` of `column_name`'<br>
     Then I am brought back to the current index page with only the records that meet that threshold shown.
 
 #### Usability
 
 - [ ] User Story 22, Team Delete From Team Index Page 
-  - As a league manager
-    When I visit the team index page
-    Next to every team, I see a link to delete that team
-    When I click the link
+  - As a league manager<br>
+    When I visit the team index page<br>
+    Next to every team, I see a link to delete that team<br>
+    When I click the link<br>
     I am returned to the Team Index Page where I no longer see that team
 - [ ] User Story 23, Player Delete From Players Index Page 
-  - As a league manager
-    When I visit the `players` index page or a team `players` index page
-    Next to every player, I see a link to delete that player
-    When I click the link
+  - As a league manager<br>
+    When I visit the `players` index page or a team `players` index page<br>
+    Next to every player, I see a link to delete that player<br>
+    When I click the link<br>
     I should be taken to the `players` index page where I no longer see that player

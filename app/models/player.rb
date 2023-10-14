@@ -19,6 +19,12 @@ class Player < ApplicationRecord
   end
 
   def self.filter_above(column, value)
-    Player.where("\"#{column}\" >= #{value.empty? ? 0 : value}")
+    v = if value.is_a?(String)
+      value.empty? ? 0 : value
+    else
+      value
+        end
+
+    Player.where("\"#{column}\" >= #{v}")
   end
 end

@@ -89,6 +89,24 @@ RSpec.describe "Teams features" do
         expect(page).to have_current_path "/teams/#{@team1.id}/edit"
       end
     end
+
+    describe "delete team from index page" do
+      it "allows inline team delete and automatic refresh" do
+        # As a league manager
+        #     When I visit the team index page
+        #     Next to every team, I see a link to delete that team
+        #     When I click the link
+        #     I am returned to the Team Index Page where I no longer see that team
+        visit "/teams"
+        # require 'pry'; binding.pry
+        within(".delete_#{@team2.id}") do
+          click_button "Delete Team"
+        end
+
+        expect(page).to have_no_content "Campus Popo"
+      end
+
+    end
   end
 
   describe "team show page" do

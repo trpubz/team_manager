@@ -66,7 +66,7 @@ RSpec.describe "Players features" do
       #      (data from each column that is on the player table)
       visit "/players/#{@p1.id}"
 
-      expect(page).to have_content @p1.xwOBA
+      expect(page).to have_content @p1.xwoba
     end
 
     describe "player updates" do

@@ -56,8 +56,8 @@ class TeamsController < ApplicationController
       name: params[:name],
       mlb_team: params[:mlb_team],
       pos: params[:pos],
-      xwOBA: params[:xwoba].empty? ? nil : params[:xwoba],
-      xFIP: params[:xfip].empty? ? nil : params[:xfip],
+      xwoba: params[:xwoba].empty? ? nil : params[:xwoba],
+      xfip: params[:xfip].empty? ? nil : params[:xfip],
       injured: params[:injured] == "1"
     )
 
