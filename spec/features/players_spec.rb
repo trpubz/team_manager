@@ -56,6 +56,23 @@ RSpec.describe "Players features" do
         expect(page).to have_current_path "/players/#{@p1.id}/edit"
       end
     end
+
+    describe "delete player from index page" do
+      it "has a button inline with the player to remove from database" do
+        # As a league manager<br>
+        #     When I visit the `players` index page or a team `players` index page<br>
+        #     Next to every player, I see a link to delete that player<br>
+        #     When I click the link<br>
+        #     I should be taken to the `players` index page where I no longer see that player
+        visit "/players"
+
+        within(".delete_#{@p1.id}") do
+          click_on "Delete Player"
+        end
+
+        expect(page).to have_no_content "Julio Rodriguez"
+      end
+    end
   end
 
   describe "player pages" do

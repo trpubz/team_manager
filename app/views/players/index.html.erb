@@ -37,6 +37,9 @@
           </a>
         </button>
       </td>
+      <td>
+        <%= button_to "Delete Player", players_path(player), method: :delete, form_class: "delete_#{player.id}" %>
+      </td>
     </tr>
   <% end %>
 </table>

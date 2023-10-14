@@ -170,13 +170,13 @@ Project 1 -- Mod 2 -- Backend -- Turing
 
 #### Usability
 
-- [ ] User Story 22, Team Delete From Team Index Page 
+- [x] User Story 22, Team Delete From Team Index Page 
   - As a league manager<br>
     When I visit the team index page<br>
     Next to every team, I see a link to delete that team<br>
     When I click the link<br>
     I am returned to the Team Index Page where I no longer see that team
-- [ ] User Story 23, Player Delete From Players Index Page 
+- [x] User Story 23, Player Delete From Players Index Page 
   - As a league manager<br>
     When I visit the `players` index page or a team `players` index page<br>
     Next to every player, I see a link to delete that player<br>
