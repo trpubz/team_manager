@@ -1,4 +1,8 @@
 class PlayersController < ApplicationController
+  def id
+    params[:id]
+  end
+
   def index
     @players = Player.healthy?
   end
@@ -20,6 +24,12 @@ class PlayersController < ApplicationController
       xFIP: params[:player][:xFIP],
       injured: params[:player][:injured] == "1"
     )
-    redirect_to "/players/#{params[:id]}"
+    redirect_to "/players/#{id}"
+  end
+
+  def destroy
+    Player.find(id).destroy!
+
+    redirect_to "/players"
   end
 end

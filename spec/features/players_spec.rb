@@ -44,7 +44,7 @@ RSpec.describe "Players features" do
 
     describe "edit button in players table" do
       it "has an edit button that takes user to edit page" do
-        #As a league manager<br>
+        # As a league manager<br>
         #     When I visit the `players` index page or a team `players` index page<br>
         #     Next to every player, I see a link to edit that player's info<br>
         #     When I click the link<br>
@@ -95,6 +95,23 @@ RSpec.describe "Players features" do
         expect(page).to have_current_path "/players/#{@p1.id}"
 
         expect(page).to have_content "Team: ARI"
+      end
+    end
+
+    describe "delete players" do
+      # As a visitor
+      #     When I visit a player show page
+      #     Then I see a link to delete the player "Delete Player"
+      #     When I click the link
+      #     Then a 'DELETE' request is sent to '/players/:id',
+      #     the player is deleted,
+      #     and I am redirected to the player index page where I no longer see this player
+      it "removes player from database" do
+        visit "/players/#{@p1.id}"
+
+        click_button "Delete Player"
+
+        expect(page).to have_current_path "/players"
       end
     end
   end

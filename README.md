@@ -149,7 +149,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
     Then a 'DELETE' request is sent to '/teams/:id',
     the team is deleted, and all player records are deleted
     and I am redirected to the team index page where I no longer see this team
-- [ ] User Story 20, Player Delete 
+- [x] User Story 20, Player Delete 
   - As a visitor
     When I visit a player show page
     Then I see a link to delete the player "Delete Player"

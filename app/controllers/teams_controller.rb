@@ -1,10 +1,18 @@
 class TeamsController < ApplicationController
+  def team_params
+    params.permit(:name, :abbrv, :owner, :win_pct, :joined)
+  end
+
+  def id
+    params[:id]
+  end
+
   def index
     @teams = Team.all.order(created_at: :desc)
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = Team.find(id)
   end
 
   def players
@@ -22,19 +30,13 @@ class TeamsController < ApplicationController
 
   def create
     # require "pry"; binding.pry
-    Team.create!(
-      name: params[:name],
-      abbrv: params[:abbrv],
-      owner: params[:owner],
-      win_pct: params[:win_pct],
-      joined: true
-    )
+    Team.create!(team_params)
 
     redirect_to "/teams"
   end
 
   def create_player
-    @team = Team.find(params[:id])
+    @team = Team.find(id)
   end
 
   def add_new_player
