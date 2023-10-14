@@ -5,17 +5,17 @@ RSpec.describe "Teams features" do
     @team1 = Team.create!(name: "Julio's Juice Box Boys", abbrv: "PEWB", owner: "TP", win_pct: 0.5595, joined: true)
     @team2 = Team.create!(name: "Campus Popo", abbrv: "POPO", owner: "Dave P", win_pct: 0.5238, joined: true)
     @team3 = Team.create!(name: "Pablo Sanchez's", abbrv: "DIRT", owner: "Tanner P", win_pct: 0.4940, joined: true)
-    @p1 = @team1.players.create!(name: "Julio Rodriquez",
+    @p1 = @team1.players.create!(name: "Julio Rodriguez",
       mlb_team: "SEA",
       pos: "OF",
-      xwOBA: 0.346,
-      xFIP: nil,
+      xwoba: 0.346,
+      xfip: nil,
       injured: false)
     @p2 = Player.create!(name: "Aaron Judge",
       mlb_team: "NYY",
       pos: "OF",
-      xwOBA: 0.468,
-      xFIP: nil,
+      xwoba: 0.468,
+      xfip: nil,
       injured: true,
       team_id: @team1.id)
   end
@@ -232,6 +232,23 @@ RSpec.describe "Teams features" do
         click_on "plyr#{@p1.id}"
 
         expect(page).to have_current_path "/players/#{@p1.id}/edit"
+      end
+    end
+
+    describe "column value filtering" do
+      it "has form to input value for filtering and returns results" do
+        # As a visitor
+        #     When I visit the Team's players Index Page
+        #     I see a form that allows me to input a number value
+        #     When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+        #     Then I am brought back to the current index page with only the records that meet that threshold shown.
+        visit "/teams/#{@team1.id}/players"
+
+        fill_in("xwOBA Above", with: 0.342)
+
+        click_on "Filter Players"
+
+        expect(page).to have_content "Julio Rodriguez"
       end
     end
   end

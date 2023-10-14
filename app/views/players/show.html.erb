@@ -7,7 +7,7 @@
 
 <p>Team: <%= @player.mlb_team %></p>
 <!--<p>Owner: <%#= @player.owner %></p>-->
-<p>Win Pct: <%= @player.xwOBA %></p>
+<p>xwOBA: <%= @player.xwoba %></p>
 <p>Injured: <%= @player.injured_str %></p>
 <button type="button"><a href="/players/<%= @player.id %>/edit">Update Player</a></button>
 <%= button_to 'Delete Player', players_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -17,11 +17,22 @@ class TeamsController < ApplicationController
 
   def players
     # require 'pry'; binding.pry
-    @team = Team.find(params[:id])
-    @players = if params[:sorted].nil?
-      @team.players
+    @team = Team.find(id)
+    players = @team.players  # get all the players into temp var
+    players = sorted(@team) if params[:sorted]  # overwrite if the sorted param is present
+    players = filtered(@team) if params[:commit]  # overwrite if the filtered param is present
+    @players = players
+  end
+
+  def filtered(tm)
+    tm.players.filter_above(params.keys.first, params.values.first)
+  end
+
+  def sorted(tm)
+    if params[:sorted] == "true"
+      tm.players.sorted_by_name
     else
-      @team.players.sorted_by_name
+      tm.players
     end
   end
 
@@ -73,5 +84,9 @@ class TeamsController < ApplicationController
     Team.find(params[:id]).destroy!
 
     redirect_to "/teams"
+  end
+
+  def filter
+
   end
 end

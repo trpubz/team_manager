@@ -17,4 +17,8 @@ class Player < ApplicationRecord
   def self.sorted_by_name
     Player.order(name: :asc)
   end
+
+  def self.filter_above(column, value)
+    Player.where("\"#{column}\" >= #{value.empty? ? 0 : value}")
+  end
 end

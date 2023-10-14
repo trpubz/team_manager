@@ -8,15 +8,25 @@ RSpec.describe Team do
     @p1 = @team1.players.create!(name: "Julio Rodriquez",
       mlb_team: "SEA",
       pos: "OF",
-      xwOBA: 0.346,
-      xFIP: nil,
+      xwoba: 0.346,
+      xfip: nil,
       injured: false)
-    @p2 = Player.create!(name: "Aaron Judge",
+    @p2 = @team2.players.create!(name: "Aaron Judge",
       mlb_team: "NYY",
       pos: "OF",
-      xwOBA: 0.468,
-      xFIP: nil,
+      xwoba: 0.468,
+      xfip: nil,
       injured: true)
+    @p4 = @team1.players.create!(name: "Trea Turner",
+      mlb_team: "PHI",
+      pos: "SS",
+      xwoba: 0.330,
+      injured: false)
+    @p5 = @team1.players.create!(name: "Randy Arozarena",
+      mlb_team: "TB",
+      pos: "OF",
+      xwoba: 0.352,
+      injured: false)
   end
 
   describe "aggregation methods" do
@@ -26,6 +36,14 @@ RSpec.describe Team do
         #      When I visit a team's show page<br>
         #      I see a count of the number of players associated with this team<br>
         expect(@team1.count_players).to eq 1
+      end
+    end
+  end
+
+  describe "filtering methods" do
+    describe "#filter_above" do
+      it "takes column name and value and returns results" do
+        expect(Player.filter_above(:xwOBA, 0.352)).to eq [@p2, @p5]
       end
     end
   end

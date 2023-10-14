@@ -18,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_195305) do
     t.string "name"
     t.string "mlb_team"
     t.string "pos"
-    t.float "xwOBA"
-    t.float "xFIP"
+    t.float "xwoba"
+    t.float "xfip"
     t.boolean "injured"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

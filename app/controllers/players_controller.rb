@@ -20,8 +20,8 @@ class PlayersController < ApplicationController
       name: params[:player][:name],
       mlb_team: params[:player][:mlb_team],
       pos: params[:player][:pos],
-      xwOBA: params[:player][:xwOBA],
-      xFIP: params[:player][:xFIP],
+      xwoba: params[:player][:xwoba],
+      xfip: params[:player][:xfip],
       injured: params[:player][:injured] == "1"
     )
     redirect_to "/players/#{id}"

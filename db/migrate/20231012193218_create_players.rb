@@ -4,8 +4,8 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :mlb_team
       t.string :pos
-      t.float :xwOBA
-      t.float :xFIP
+      t.float :xwoba
+      t.float :xfip
       t.boolean :injured
 
       t.timestamps

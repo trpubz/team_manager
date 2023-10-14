@@ -22,12 +22,12 @@
       <td><a href="/players/<%= player.id %>"><%= player.name %></a></td>
       <td><%= player.mlb_team %></td>
       <td><%= player.pos %></td>
-      <% if player.xwOBA %>
-        <td><%= player.xwOBA %></td>
-        <td style="background-color: rgba(37,34,34,0.7)"><%= player.xFIP %></td>
+      <% if player.xwoba %>
+        <td><%= player.xwoba %></td>
+        <td style="background-color: rgba(37,34,34,0.7)"><%= player.xfip %></td>
       <% else %>
-        <td style="background-color: rgba(37,34,34,0.7)"><%= player.xwOBA %></td>
-        <td><%= player.xFIP %></td>
+        <td style="background-color: rgba(37,34,34,0.7)"><%= player.xwoba %></td>
+        <td><%= player.xfip %></td>
       <% end %>
       <td><%= player.injured_str %></td>
       <td>

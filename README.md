@@ -142,7 +142,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
 
 #### CRUD
 - [x] User Story 19, Team Delete 
-  - As a visitor
+  - As a league manager
     When I visit a team show page
     Then I see a link to delete the team
     When I click the link "Delete Team"
@@ -150,7 +150,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
     the team is deleted, and all player records are deleted
     and I am redirected to the team index page where I no longer see this team
 - [x] User Story 20, Player Delete 
-  - As a visitor
+  - As a league manager
     When I visit a player show page
     Then I see a link to delete the player "Delete Player"
     When I click the link
@@ -161,7 +161,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
 #### ActiveRecord
 
 - [ ] User Story 21, Display Records Over a Given Threshold 
-  - As a visitor
+  - As a league manager
     When I visit the Team's players Index Page
     I see a form that allows me to input a number value
     When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
@@ -170,13 +170,13 @@ Project 1 -- Mod 2 -- Backend -- Turing
 #### Usability
 
 - [ ] User Story 22, Team Delete From Team Index Page 
-  - As a visitor
+  - As a league manager
     When I visit the team index page
     Next to every team, I see a link to delete that team
     When I click the link
     I am returned to the Team Index Page where I no longer see that team
 - [ ] User Story 23, Player Delete From Players Index Page 
-  - As a visitor
+  - As a league manager
     When I visit the `players` index page or a team `players` index page
     Next to every player, I see a link to delete that player
     When I click the link

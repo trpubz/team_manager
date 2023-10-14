@@ -14,8 +14,8 @@ Team.destroy_all
   name: "Julio Rodriquez",
   mlb_team: "SEA",
   pos: "OF",
-  xwOBA: 0.346,
-  xFIP: nil,
+  xwoba: 0.346,
+  xfip: nil,
   injured: false,
   team_id:
     @team1.id
@@ -24,8 +24,8 @@ Team.destroy_all
   name: "Aaron Judge",
   mlb_team: "NYY",
   pos: "OF",
-  xwOBA: 0.468,
-  xFIP: nil,
+  xwoba: 0.468,
+  xfip: nil,
   injured: true,
   team_id:
     @team2.id
@@ -34,8 +34,8 @@ Team.destroy_all
   name: "Jacob DeGrom",
   mlb_team: "TEX",
   pos: "SP",
-  xwOBA: nil,
-  xFIP: 2.32,
+  xwoba: nil,
+  xfip: 2.32,
   injured: true,
   team_id:
     @team3.id
@@ -44,8 +44,8 @@ Team.destroy_all
   name: "Corbin Carroll",
   mlb_team: "ARI",
   pos: "OF",
-  xwOBA: 0.346,
-  xFIP: nil,
+  xwoba: 0.346,
+  xfip: nil,
   injured: false,
   team_id: @team1.id
 )

@@ -8,14 +8,14 @@ RSpec.describe "Players features" do
     @p1 = @team1.players.create!(name: "Julio Rodriquez",
       mlb_team: "SEA",
       pos: "OF",
-      xwOBA: 0.346,
-      xFIP: nil,
+      xwoba: 0.346,
+      xfip: nil,
       injured: false)
     @p2 = Player.create!(name: "Aaron Judge",
       mlb_team: "NYY",
       pos: "OF",
-      xwOBA: 0.468,
-      xFIP: nil,
+      xwoba: 0.468,
+      xfip: nil,
       injured: true,
       team_id: @team1.id)
   end

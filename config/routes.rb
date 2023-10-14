@@ -10,10 +10,9 @@ Rails.application.routes.draw do
   get "/teams/:id", to: "teams#show"
   patch "teams/:id", to: "teams#update"
   get "/teams/:id/edit", to: "teams#edit"
-  get "/teams/:id/players", to: "teams#players"
+  get "/teams/:id/players", to: "teams#players"  # handles sorted and filtered
   get "/teams/:id/players/new", to: "teams#create_player"
   post "/teams/:id/players", to: "teams#add_new_player"
-
 
   get "/players/", to: "players#index"
   delete "/players.:id", to: "players#destroy"
