@@ -3,9 +3,21 @@
 </nav>
 <h1>Teams</h1>
 
+<a href="/teams?sort=by_players"><button type="button">Sort by Players</button></a>
 <p>sorted by created time [desc]:</p>
+
 <table>
+  <tr>
+    <th></th>
+    <th>Created At</th>
+    <% if @teams.first.respond_to?("players_count") %>
+      <th>Players Count</th>
+    <% end %>
+    <th></th>
+    <th></th>
+  </tr>
   <% @teams.each do | team | %>
+    <%#= require 'pry'; binding.pry %>
     <tr>
       <td>
         <a href="/teams/<%= team.id %>"><%= team.name %></a>
@@ -13,6 +25,9 @@
       <td>
         <%= team.created_at.strftime("%m/%d/%Y @%H:%M:%S:%L") %>
       </td>
+      <% if team.respond_to?("players_count") %>
+        <td><%= team.players_count %></td>
+      <% end %>
       <td>
         <button type="button">
           <a href="/teams/<%= team.id %>/edit" id="tm<%= team.id %>">Edit Team</a>

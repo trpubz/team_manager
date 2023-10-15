@@ -8,7 +8,15 @@ class TeamsController < ApplicationController
   end
 
   def index
-    @teams = Team.all.order(created_at: :desc)
+    @teams = if params[:sort] == "by_players"
+      # require 'pry'; binding.pry
+      Team.left_joins(:players)
+        .group(:id)
+        .order("COUNT(players.id) DESC")
+        .select("teams.*, COUNT(players.id) as players_count")
+    else
+      Team.all.order(created_at: :desc)
+    end
   end
 
   def show

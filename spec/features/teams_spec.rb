@@ -107,6 +107,22 @@ RSpec.describe "Teams features" do
       end
 
     end
+
+    describe "sort teams list by number of players belonging to team" do
+      it "shows the count of the players after the sort button is pressed" do
+        # As a league manager<br>
+        #     When I visit the Teams Index Page<br>
+        #     Then I see a link to sort teams by the number of `players` they have<br>
+        #     When I click on the link<br>
+        #     I'm taken back to the Team Index Page where I see all of the teams in order of their count of
+        #     `players` (highest to lowest) And, I see the number of players next to each team name
+        visit "/teams"
+
+        click_link "Sort by Players"
+
+        expect(@team1.name).to appear_before @team2.name
+      end
+    end
   end
 
   describe "team show page" do

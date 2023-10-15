@@ -184,22 +184,22 @@ Project 1 -- Mod 2 -- Backend -- Turing
     I should be taken to the `players` index page where I no longer see that player
 
 ### Extensions
-- [ ] Extension 1: Sort Parents by Number of Children 
-  - As a visitor<br>
-    When I visit the Parents Index Page<br>
-    Then I see a link to sort parents by the number of `child_table_name` they have<br>
+- [ ] Extension 1: Sort Teams by Number of Players 
+  - As a league manager<br>
+    When I visit the Teams Index Page<br>
+    Then I see a link to sort teams by the number of `players` they have<br>
     When I click on the link<br>
-    I'm taken back to the Parent Index Page where I see all of the parents in order of their count of 
-    `child_table_name` (highest to lowest) And, I see the number of children next to each parent name
+    I'm taken back to the Team Index Page where I see all of the teams in order of their count of 
+    `players` (highest to lowest) And, I see the number of players next to each team name
 - [ ] Extension 2: Search by name (exact match)
-  - As a visitor<br>
-    When I visit an index page ('/parents') or ('/child_table_name')<br>
+  - As a league manager<br>
+    When I visit an index page ('/teams') or ('/players')<br>
     Then I see a text box to filter results by keyword<br>
     When I type in a keyword that is an exact match of one or more of my records and press the Search button<br>
     Then I only see records that are an exact match returned on the page
 - [ ] Extension 3: Search by name (partial match)
-  - As a visitor<br>
-    When I visit an index page ('/parents') or ('/child_table_name')<br>
+  - As a league manager<br>
+    When I visit an index page ('/teams') or ('/players')<br>
     Then I see a text box to filter results by keyword<br>
     When I type in a keyword that is an partial match of one or more of my records and press the Search button<br>
     Then I only see records that are an partial match returned on the page <br>
