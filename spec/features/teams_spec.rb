@@ -123,6 +123,26 @@ RSpec.describe "Teams features" do
         expect(@team1.name).to appear_before @team2.name
       end
     end
+
+    describe "filter attribute matches" do
+      it "allows filtering exact matches on team name attribute" do
+        # As a league manager<br>
+        #     When I visit an index page ('/teams') or ('/players')<br>
+        #     Then I see a text box to filter results by keyword<br>
+        #     When I type in a keyword that is an exact match of one or more of my records and press the Search button<br>
+        #     Then I only see records that are an exact match returned on the page
+        visit "/teams"
+
+        fill_in "Search Team Name", with: "Julio's Juice Box Boys"
+        click_button "Search"
+
+        expect(page).to have_no_content @team2.name
+      end
+
+      it "allows filtering on partial matches on team name attribute" do
+
+      end
+    end
   end
 
   describe "team show page" do

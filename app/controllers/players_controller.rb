@@ -4,7 +4,11 @@ class PlayersController < ApplicationController
   end
 
   def index
-    @players = Player.healthy?
+    @players = if params[:commit] == "Search"
+      Player.where(mlb_team: params[:q])
+    else
+      Player.healthy?
+    end
   end
 
   def show

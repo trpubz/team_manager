@@ -8,12 +8,14 @@ class TeamsController < ApplicationController
   end
 
   def index
+    # require 'pry'; binding.pry
     @teams = if params[:sort] == "by_players"
-      # require 'pry'; binding.pry
       Team.left_joins(:players)
         .group(:id)
         .order("COUNT(players.id) DESC")
         .select("teams.*, COUNT(players.id) as players_count")
+    elsif params[:commit] == "Search"
+      Team.where(name: params[:q])
     else
       Team.all.order(created_at: :desc)
     end

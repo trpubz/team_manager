@@ -4,7 +4,12 @@
 <h1>Teams</h1>
 
 <a href="/teams?sort=by_players"><button type="button">Sort by Players</button></a>
-<p>sorted by created time [desc]:</p>
+
+<%= form_with url: teams_path, method: :get, local: true do |form| %>
+  <%= form.label :q, "Search Team Name:" %>
+  <%= form.text_field :q %>
+  <%= form.submit "Search" %>
+<% end %>
 
 <table>
   <tr>

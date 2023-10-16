@@ -8,6 +8,12 @@
 </nav>
 <h1>Players</h1>
 
+<%= form_with url: players_path, method: :get, local: true do |form| %>
+  <%= form.label :q, "Search MLB Team:" %>
+  <%= form.text_field :q %>
+  <%= form.submit "Search" %>
+<% end %>
+
 <table style="text-align: justify" id="players">
   <tr>
     <th>Player</th>

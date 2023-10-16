@@ -18,6 +18,15 @@ RSpec.describe "Players features" do
       xfip: nil,
       injured: true,
       team_id: @team1.id)
+    @p4 = Player.create!(
+      name: "Corbin Carroll",
+      mlb_team: "ARI",
+      pos: "OF",
+      xwoba: 0.346,
+      xfip: nil,
+      injured: false,
+      team_id: @team1.id
+    )
   end
 
   describe "index page" do
@@ -71,6 +80,22 @@ RSpec.describe "Players features" do
         end
 
         expect(page).to have_no_content "Julio Rodriguez"
+      end
+    end
+
+    describe "filter attribute matches" do
+      it "allows filtering exact matches on team name attribute" do
+        # As a league manager<br>
+        #     When I visit an index page ('/teams') or ('/players')<br>
+        #     Then I see a text box to filter results by keyword<br>
+        #     When I type in a keyword that is an exact match of one or more of my records and press the Search button<br>
+        #     Then I only see records that are an exact match returned on the page
+        visit "/players"
+
+        fill_in "Search MLB Team", with: "ARI"
+        click_button "Search"
+
+        expect(page).to have_no_content @p1.name
       end
     end
   end
