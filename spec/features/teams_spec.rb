@@ -140,7 +140,12 @@ RSpec.describe "Teams features" do
       end
 
       it "allows filtering on partial matches on team name attribute" do
+        visit "/teams"
 
+        fill_in "Search Team Name", with: "J"
+        click_button "Search"
+
+        expect(page).to have_no_content @team2.name
       end
     end
   end

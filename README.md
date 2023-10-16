@@ -197,7 +197,7 @@ Project 1 -- Mod 2 -- Backend -- Turing
     Then I see a text box to filter results by keyword<br>
     When I type in a keyword that is an exact match of one or more of my records and press the Search button<br>
     Then I only see records that are an exact match returned on the page
-- [ ] Extension 3: Search by name (partial match)
+- [x] Extension 3: Search by name (partial match)
   - As a league manager<br>
     When I visit an index page ('/teams') or ('/players')<br>
     Then I see a text box to filter results by keyword<br>

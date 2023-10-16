@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
 
   def index
     @players = if params[:commit] == "Search"
-      Player.where(mlb_team: params[:q])
+      Player.where("mlb_team like '%#{params[:q].upcase}%'")
     else
       Player.healthy?
     end

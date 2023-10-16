@@ -97,6 +97,22 @@ RSpec.describe "Players features" do
 
         expect(page).to have_no_content @p1.name
       end
+
+      it "allows filtering partial matches on team name attribute" do
+        # As a league manager<br>
+        #     When I visit an index page ('/teams') or ('/players')<br>
+        #     Then I see a text box to filter results by keyword<br>
+        #     When I type in a keyword that is an partial match of one or more of my records and press the Search button<br>
+        #     Then I only see records that are an partial match returned on the page <br>
+        #     This functionality should be separate from your exact match functionality.
+        visit "/players"
+
+        fill_in "Search MLB Team", with: "A"
+        click_button "Search"
+
+        expect(page).to have_content @p1.name
+        expect(page).to have_content @p4.name
+      end
     end
   end
 

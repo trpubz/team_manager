@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
         .order("COUNT(players.id) DESC")
         .select("teams.*, COUNT(players.id) as players_count")
     elsif params[:commit] == "Search"
-      Team.where(name: params[:q])
+      Team.where("name like '%#{params[:q].gsub(/'/, "''")}%'")
     else
       Team.all.order(created_at: :desc)
     end
