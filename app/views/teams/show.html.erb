@@ -15,5 +15,5 @@
   <p>Joined: <%= @team.joined_str %></p>
 </div>
 <button type="button"><a href="/teams/<%= @team.id %>/edit">Update Team</a></button>
-<%= button_to 'Delete Team', teams_path(@team), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Delete Team', "/teams/#{@team.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 

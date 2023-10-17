@@ -39,7 +39,7 @@
         </button>
       </td>
       <td>
-        <%= button_to 'Delete Team', teams_path(team), method: :delete, form_class: "delete_#{team.id}" %>
+        <%= button_to 'Delete Team', "/teams/#{team.id}", method: :delete, form_class: "delete_#{team.id}" %>
       </td>
     </tr>
   <% end %>
