@@ -5,6 +5,7 @@ RSpec.describe "Teams features" do
     @team1 = Team.create!(name: "Julio's Juice Box Boys", abbrv: "PEWB", owner: "TP", win_pct: 0.5595, joined: true)
     @team2 = Team.create!(name: "Campus Popo", abbrv: "POPO", owner: "Dave P", win_pct: 0.5238, joined: true)
     @team3 = Team.create!(name: "Pablo Sanchez's", abbrv: "DIRT", owner: "Tanner P", win_pct: 0.4940, joined: true)
+    @team4 = Team.create!(name: "Bad Team", win_pct: 0.0, joined: false)
     @p1 = @team1.players.create!(name: "Julio Rodriguez",
       mlb_team: "SEA",
       pos: "OF",
@@ -70,7 +71,15 @@ RSpec.describe "Teams features" do
       it "navigates to new form to add team to database" do
         visit "/teams"
 
-        expect(page).to have_link(nil, href: "/teams/new")
+        click_link "New Team"
+
+        expect(page).to have_current_path "/teams/new"
+
+        fill_in "Name", with: "New Team"
+
+        click_on "Create Team"
+
+        expect(page).to have_content "New Team"
       end
 
       it "shows a form and handles the input to create a new team" do
@@ -159,7 +168,12 @@ RSpec.describe "Teams features" do
       visit "/teams/#{@team1.id}"
 
       expect(page).to have_content @team1.win_pct.round(3)
+
       expect(page).to have_content "Joined: Yes"
+
+      visit "/teams/#{@team4.id}"
+
+      expect(page).to have_content "Joined: No"
     end
 
     it "shows the number of players on that team" do
@@ -186,16 +200,19 @@ RSpec.describe "Teams features" do
       #     Then a `PATCH` request is sent to '/teams/:id',
       #     the team's info is updated,
       #     and I am redirected to the Team's Show page where I see the team's updated info
-      it "allows to update the team" do
-        visit "/teams/#{@team1.id}"
-
-        expect(page).to have_button "Update Team"
-      end
 
       it "navigates to an edit form" do
-        visit "/teams/#{@team1.id}/edit"
+        visit "/teams/#{@team1.id}"
 
-        expect(page).to have_button "Update"
+        click_link "Update Team"
+
+        expect(page).to have_current_path "/teams/#{@team1.id}/edit"
+
+        fill_in "Owner", with: "Sir TP"
+
+        click_on "Update"
+
+        expect(page).to have_content "Owner: Sir TP"
       end
     end
 
@@ -257,7 +274,6 @@ RSpec.describe "Teams features" do
         fill_in("POS", with: "OF")
         fill_in("xwOBA", with: "0.899")
 
-        expect(page).to have_button "Create Player"
         click_button("Create Player")
 
         expect(page).to have_content "New Player"
@@ -276,6 +292,10 @@ RSpec.describe "Teams features" do
         click_link "Sort by Name"
 
         expect(@p2.name).to appear_before @p1.name
+
+        visit "/teams/#{@team1.id}/players?sorted=false"
+
+        expect(@p1.name).to appear_before @p2.name
       end
     end
 
